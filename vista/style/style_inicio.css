@@ -14,7 +14,7 @@ body {
     color: white;
     padding: 15px;
     transition: right 0.3s ease;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .menu ul {
@@ -46,7 +46,7 @@ body {
     padding: 10px 15px;
     cursor: pointer;
     border-radius: 5px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s ease;
 }
 

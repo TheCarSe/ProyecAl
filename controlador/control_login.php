@@ -1,20 +1,24 @@
 <?php
 include 'conexion.php';
 
-// Obtener datos del formulario
 $email = $_POST['email'];
 $passwd = $_POST['password'];
 
-// Consulta para verificar el usuario
-$sql = "SELECT * FROM usuarios WHERE email='$email' AND password='$passwd'";
+$sql = "SELECT * FROM usuarios WHERE email='$email'";
 $result = $conexion->query($sql);
 
 if ($result->num_rows > 0) {
-    // Usuario encontrado, redirigir a inicio.html
-    header("Location: inicio.html");
-    exit();
+    $user = $result->fetch_assoc();
+    if (password_verify($passwd, $user['password'])) {
+        header("Location: ../vista/inicio.php");
+        exit();
+    } else {
+        header("Location: ../vista/login.php?mensaje=Datos Incorectos");
+        exit();
+    }
 } else {
-    echo "Email o contraseña incorrectos";
+    header("Location: ../vista/login.php?mensaje=Datos Incorectos");
+    exit();
 }
 
 $conexion->close();
